@@ -1,0 +1,97 @@
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+}
+
+h2 {
+  color: #7b1fa2;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 28px;
+}
+
+.busca-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.busca-box input {
+  flex: 1;
+  max-width: 350px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #c4aedb;
+  background: #faf7fd;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.busca-box input:focus {
+  border-color: #7b1fa2;
+  background: #f3e5f5;
+  outline: none;
+}
+
+.busca-box button {
+  padding: 12px 20px;
+  background: #7b1fa2;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.2s;
+  min-width: 100px;
+}
+
+.busca-box button:hover {
+  background: #6a1b9a;
+  transform: scale(1.03);
+}
+
+.nao-encontrado {
+  margin-top: 20px;
+  color: #b00020;
+  font-size: 15px;
+}
+
+.disciplina-item {
+  text-align: left;
+  padding: 18px;
+  background: white;
+  margin: 18px 0;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
+  transition: 0.25s;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  animation: fade 0.3s ease;
+}
+
+.disciplina-item:hover {
+  background: #f3e5f5;
+  border-left: 5px solid #7b1fa2;
+  transform: translateY(-2px);
+}
+
+.disciplina-item p {
+  margin: 4px 0;
+  color: #444;
+}
+
+.disciplina-item p strong {
+  color: #6a1b9a;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

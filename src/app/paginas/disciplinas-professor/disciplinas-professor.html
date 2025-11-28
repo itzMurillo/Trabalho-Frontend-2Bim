@@ -1,0 +1,36 @@
+<h2>Buscar Disciplina</h2>
+
+<!-- campo onde digita o nome da disciplina para buscar -->
+<input placeholder="Nome da disciplina"
+       [(ngModel)]="nomeDisciplina"/>
+<!-- botçao que faz a busca chamando o metodo buscar() -->
+<button (click)="buscar()">Buscar</button>
+
+<hr>
+
+<!-- se já carregou a busca e não achou nenhuma disciplina -->
+<div *ngIf="carregado && disciplinas.length === 0">
+  <p>Nenhuma disciplina encontrada.</p>
+</div>
+
+<!-- lista as disciplinas encontradas -->
+<div *ngIf="disciplinas.length > 0">
+
+  <!-- repete um card para cada disciplina da lista -->
+  <div *ngFor="let d of disciplinas"
+       class="disciplina-item"
+       (click)="abrirMateria(d)">
+
+    <!-- mostra o código e o nome da disciplina -->
+    <p><strong>Código:</strong> {{ d.codigo }} - {{ d.nome }}</p>
+
+    <!-- nomme do professor vinculado -->
+    <p><strong>Professor:</strong> {{ d.professorNome }}</p>
+
+    <!-- informações extras da disciplina -->
+    <p><strong>Descrição:</strong> {{ d.descricao }}</p>
+    <p><strong>Ementa:</strong> {{ d.ementa }}</p>
+
+  </div>
+
+</div>

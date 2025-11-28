@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: auto;
+  gap: 10px;
+}
+
+h2 {
+  text-align: center;
+  width: 100%;
+}

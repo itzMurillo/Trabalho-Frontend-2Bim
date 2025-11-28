@@ -1,0 +1,19 @@
+<h2>Cadastro de Disciplinas</h2>
+
+<form (ngSubmit)="salvar()">
+
+  <!-- campos da disciplina -->
+  <input placeholder="Código" [(ngModel)]="disc.codigo" name="codigo">
+  <input placeholder="Nome da Disciplina" [(ngModel)]="disc.nome" name="nome">
+  <input placeholder="Descrição" [(ngModel)]="disc.descricao" name="descricao">
+  <input placeholder="Ementa" [(ngModel)]="disc.ementa" name="ementa">
+
+  <!-- select com lista de professores -->
+  <select [(ngModel)]="disc.professorId" name="professorId">
+    <option *ngFor="let p of professores" [value]="p.id">
+      {{ p.nome }}
+    </option>
+  </select>
+
+  <button>Salvar</button>
+</form>

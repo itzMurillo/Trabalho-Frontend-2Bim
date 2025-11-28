@@ -1,0 +1,26 @@
+.home-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.menu-home {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.menu-home a {
+  background: #7b1fa2;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  width: 250px;
+  transition: .2s;
+}
+
+.menu-home a:hover {
+  background: #6a1b9a;
+}

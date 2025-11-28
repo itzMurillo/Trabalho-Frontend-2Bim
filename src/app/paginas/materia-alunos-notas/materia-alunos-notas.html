@@ -1,0 +1,103 @@
+<h2>Pesquisar Matéria</h2>
+
+<!-- caixa de busca onde digita o nome da matéria -->
+<div class="busca-box">
+  <input placeholder="Nome da matéria" [(ngModel)]="nomeMateria">
+  <!-- botão que chama o metodo buscarMateria() -->
+  <button (click)="buscarMateria()">Buscar</button>
+</div>
+
+<!-- exibe o nome da disciplina e o professor quando encontra -->
+<div *ngIf="disciplina">
+  <h3>Matéria: {{ disciplina.nome }}</h3>
+  <p><strong>Professor:</strong> {{ disciplina.professorNome }}</p>
+</div>
+
+<!-- lista de alunos matriculados na disciplina -->
+<div *ngIf="alunos.length > 0">
+  <h3>Alunos Matriculados</h3>
+
+  <ul class="alunos-lista">
+    <!-- exibe cada aluno matriculado e permite selecionar ele -->
+    <li
+      class="aluno-item"
+      [class.selecionado]="rel === alunoSelecionado"
+      *ngFor="let rel of alunos"
+      (click)="selecionarAluno(rel)"
+    >
+      {{ rel.aluno.nome }} — RA: {{ rel.aluno.ra }}
+    </li>
+  </ul>
+</div>
+
+<!-- quando um aluno é selecionado, mostra a tabela de lançamento -->
+<div *ngIf="alunoSelecionado">
+  <h3>Lançar Notas — {{ alunoSelecionado.aluno.nome }}</h3>
+
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Bimestre</th>
+      <th>Nota</th>
+      <th>Faltas (Selecionar Data)</th>
+      <th>Ação</th>
+    </tr>
+
+    <!-- 1 bimestre -->
+    <tr>
+      <td>1º</td>
+
+      <!-- campo pra digitar a nota -->
+      <td>
+        <input type="number" [(ngModel)]="nota1" (input)="calcularMedia()">
+      </td>
+      <!-- faltas usando input date -->
+      <td>
+        <!-- adiciona uma nova falta -->
+        <input type="date" (change)="adicionarFalta1($event)">
+
+        <!-- lista de faltas selecionadas -->
+        <div class="lista-faltas">
+          <span *ngFor="let f of faltas1Selecionadas">
+            {{ f | date:'dd/MM' }}
+            <!-- remove a falta da lista -->
+            <button (click)="removerFalta1(f)">x</button>
+          </span>
+        </div>
+      </td>
+
+      <td><button (click)="salvar1()">Salvar</button></td>
+    </tr>
+
+    <!-- 2 bimestre -->
+    <tr>
+      <td>2º</td>
+
+      <td>
+        <input type="number" [(ngModel)]="nota2" (input)="calcularMedia()">
+      </td>
+
+      <td>
+        <input type="date" (change)="adicionarFalta2($event)">
+
+        <div class="lista-faltas">
+          <span *ngFor="let f of faltas2Selecionadas">
+            {{ f | date:'dd/MM' }}
+            <button (click)="removerFalta2(f)">x</button>
+          </span>
+        </div>
+      </td>
+
+      <td><button (click)="salvar2()">Salvar</button></td>
+    </tr>
+  </table>
+
+  <!-- média calculada automaticamente -->
+  <h3>Média Final: {{ media }}</h3>
+
+  <h3>Média Final: {{ media }}</h3>
+  <h3>Situação Atual:
+    <span [style.color]="situacaoCor">
+    {{ alunoSelecionado.situacao }}
+  </span>
+  </h3>
+</div>

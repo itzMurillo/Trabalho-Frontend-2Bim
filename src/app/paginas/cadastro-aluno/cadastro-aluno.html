@@ -1,0 +1,14 @@
+<h2>Cadastro de Alunos</h2>
+
+<form (ngSubmit)="salvar()">
+  <!-- campo para digitar o ra do aluno -->
+  <input placeholder="RA" [(ngModel)]="aluno.ra" name="ra" required>
+  <!-- nome do aluno -->
+  <input placeholder="Nome" [(ngModel)]="aluno.nome" name="nome" required>
+  <!-- data de nascimento -->
+  <input placeholder="Data de Nascimento" [(ngModel)]="aluno.dtNascimento" name="dtNascimento">
+  <!-- curso do aluno -->
+  <input placeholder="Curso" [(ngModel)]="aluno.curso" name="curso">
+
+  <button type="submit">Salvar</button>
+</form>

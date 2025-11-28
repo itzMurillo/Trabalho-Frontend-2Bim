@@ -1,0 +1,15 @@
+<h2>Cadastro de Professores</h2>
+
+<form (ngSubmit)="salvar()">
+
+  <!-- matrícula do professor -->
+  <input placeholder="Matrícula" [(ngModel)]="prof.matricula" name="matricula">
+  <!-- nome -->
+  <input placeholder="Nome" [(ngModel)]="prof.nome" name="nome">
+  <!-- cpf -->
+  <input placeholder="CPF" [(ngModel)]="prof.cpf" name="cpf">
+  <!-- data de admissão -->
+  <input placeholder="Data Admissão" [(ngModel)]="prof.dtAdmissao" name="dtAdmissao">
+
+  <button>Salvar</button>
+</form>

@@ -1,0 +1,20 @@
+<h2>Matricular Aluno em Disciplina</h2>
+
+<!-- seleciona o aluno para matricular -->
+<select [(ngModel)]="alunoId">
+  <!-- lista todos os alunos carregados -->
+  <option *ngFor="let a of alunos" [value]="a.id">
+    {{ a.nome }} (RA {{ a.ra }})
+  </option>
+</select>
+
+<!-- seleciona a disciplina onde o aluno vai ser matriculado -->
+<select [(ngModel)]="disciplinaId">
+  <!-- lista todas as disciplinas -->
+  <option *ngFor="let d of disciplinas" [value]="d.id">
+    {{ d.nome }}
+  </option>
+</select>
+
+<!-- botão que faz a matrícula -->
+<button (click)="matricular()">Matricular</button>
